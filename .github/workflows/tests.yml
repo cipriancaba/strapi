@@ -201,12 +201,12 @@ jobs:
           cache: yarn
       - name: Check versions
         run: node --version && npm --version
-      # - uses: ./.github/actions/install-modules
-      # - uses: ./.github/actions/run-api-tests
-      #   env:
-      #     SQLITE_PKG: ${{ matrix.sqlite_pkg }}
-      #   with:
-      #     dbOptions: '--dbclient=sqlite-legacy --dbfile=./tmp/data.db'
+      - uses: ./.github/actions/install-modules
+      - uses: ./.github/actions/run-api-tests
+        env:
+          SQLITE_PKG: ${{ matrix.sqlite_pkg }}
+        with:
+          dbOptions: '--dbclient=sqlite-legacy --dbfile=./tmp/data.db'
   # EE
   # api_ee_pg:
   #   runs-on: ubuntu-latest
